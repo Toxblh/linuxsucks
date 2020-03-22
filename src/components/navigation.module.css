@@ -4,7 +4,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 20vh;
+  height: auto;
   max-height: 100px;
   font-size: 1.25em;
 }
@@ -22,10 +22,11 @@
 }
 
 .navigationItem a {
-  color: currentColor;
+  color: white;
+  text-decoration: none;
 }
 
 .navigationlogo {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
 }

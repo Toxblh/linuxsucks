@@ -38,6 +38,8 @@
 
 .heroHeadline {
   margin: 0;
+  font-size: 2em;
+  font-weight: normal;
 }
 
 .heroTitle {
