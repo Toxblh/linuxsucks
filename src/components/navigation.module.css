@@ -9,6 +9,12 @@
   font-size: 1.25em;
 }
 
+.navigationwrap {
+  display: flex;
+  background: #282C34;
+  padding: 5px;
+}
+
 .navigationItem {
   display: inline-flex;
   align-items: center;
@@ -17,4 +23,9 @@
 
 .navigationItem a {
   color: currentColor;
+}
+
+.navigationlogo {
+  width: 100px;
+  height: 100px;
 }
