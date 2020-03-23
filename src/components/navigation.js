@@ -5,7 +5,7 @@ import Logo from './linuxsuckslogo.png'
 
 export default () => (
   <nav role="navigation" className={styles.navigationwrap}>
-    <img className={styles.navigationlogo} src={Logo} alt="Linux Friday Shitposting"></img>
+      <Link to="/"><img className={styles.navigationlogo} src={Logo} alt="Linux Friday Shitposting"></img></Link>
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
         <Link to="/">Главная</Link>

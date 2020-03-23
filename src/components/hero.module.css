@@ -9,19 +9,22 @@
   /*
     Ensure golden ratio for the hero size while limiting it to some extend to
     the viewport width
-  */
-  height: 61.8vh;
-  max-height: 400px;
-}
 
+
+
+}
+*/
+  height: auto;
+}
 .heroDetails {
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
   left: 50%;
   bottom: 0;
+  width: 100%;
   transform: translate(-50%, 0);
   font-size: 14px;
-  padding: 0 0.5em;
+  padding: 10px 0px 10px 0px;
 }
 
 @media(min-width: 600px) {

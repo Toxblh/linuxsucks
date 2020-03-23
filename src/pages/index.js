@@ -14,7 +14,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
+        <main style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
           <div className="wrapper">
@@ -29,7 +29,7 @@ class RootIndex extends React.Component {
               })}
             </ul>
           </div>
-        </div>
+        </main>
       </Layout>
     )
   }
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
             fluid(
               maxWidth: 1180
               maxHeight: 480
-              resizingBehavior: PAD
+              resizingBehavior: SCALE
               background: "rgb:000000"
             ) {
               ...GatsbyContentfulFluid_tracedSVG
