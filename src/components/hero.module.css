@@ -16,6 +16,11 @@
 */
   height: auto;
 }
+
+.heroImageBlog {
+max-height: 400px;
+}
+
 .heroDetails {
   position: absolute;
   background: rgba(0, 0, 0, 0.7);

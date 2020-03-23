@@ -17,9 +17,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Linux Friday Shitposting',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/linux-friday-shitposting',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
