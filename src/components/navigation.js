@@ -1,18 +1,36 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
-import styles from './navigation.module.css'
-import Logo from './linuxsuckslogo.png'
 
-export default () => (
-  <nav role="navigation" className={styles.navigationwrap}>
-      <Link to="/"><img className={styles.navigationlogo} src={Logo} alt="Linux Friday Shitposting"></img></Link>
-    <ul className={styles.navigation}>
-      <li className={styles.navigationItem}>
-        <Link to="/">Главная</Link>
-      </li>
-      <li className={styles.navigationItem}>
-        <Link to="/blog/">Статьи</Link>
-      </li>
-    </ul>
-  </nav>
-)
+import style from '../styles/navigation.module.css'
+
+const Navigation = ({ nextPath, previousPath, nextLabel, previousLabel }) =>
+  previousPath || nextPath ? (
+    <div className={style.navigation}>
+      {previousPath && (
+        <span className={style.button}>
+          <Link to={previousPath}>
+            <span className={style.iconPrev}>←</span>
+            <span className={style.buttonText}>{previousLabel}</span>
+          </Link>
+        </span>
+      )}
+      {nextPath && (
+        <span className={style.button}>
+          <Link to={nextPath}>
+            <span className={style.buttonText}>{nextLabel}</span>
+            <span className={style.iconNext}>→</span>
+          </Link>
+        </span>
+      )}
+    </div>
+  ) : null
+
+Navigation.propTypes = {
+  nextPath: PropTypes.string,
+  previousPath: PropTypes.string,
+  nextLabel: PropTypes.string,
+  previousLabel: PropTypes.string,
+}
+
+export default Navigation

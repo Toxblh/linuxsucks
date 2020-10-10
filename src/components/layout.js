@@ -1,26 +1,65 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    let header
+import Header from './header'
+import Footer from './footer'
 
-    let rootPath = `/`
-    if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
+import '../styles/layout.css'
+
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          logo {
+            src
+            alt
+          }
+          logoText
+          defaultTheme
+          copyrights
+          mainMenu {
+            title
+            path
+          }
+          showMenuItems
+          menuMoreText
+        }
+      }
     }
+  `)
+  const {
+    title,
+    logo,
+    logoText,
+    defaultTheme,
+    mainMenu,
+    showMenuItems,
+    menuMoreText,
+    copyrights,
+  } = data.site.siteMetadata
 
-    return (
-      <Container>
-        <Navigation />
-        {children}
-      </Container>
-    )
-  }
+  return (
+    <div className="container">
+      <Header
+        siteTitle={title}
+        siteLogo={logo}
+        logoText={logoText}
+        defaultTheme={defaultTheme}
+        mainMenu={mainMenu}
+        mainMenuItems={showMenuItems}
+        menuMoreText={menuMoreText}
+      />
+      <div className="content">{children}</div>
+      <Footer copyrights={copyrights} />
+    </div>
+  )
 }
 
-export default Template
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+}
+
+export default Layout

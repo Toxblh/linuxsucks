@@ -1,33 +1,127 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
-
-const contentfulConfig = {
-  spaceId: 'z41b2ey1ctlc',
-  accessToken: 'UQ6ejGm6y-MZ5UX68Amx_w_0Ud8OKwt08qhelN-AXCU',
-}
-
-const { spaceId, accessToken } = contentfulConfig
-
-if (!spaceId || !accessToken) {
-  throw new Error(
-    'Contentful spaceId and the access token need to be provided.'
-  )
-}
+const postCssPresetEnv = require(`postcss-preset-env`)
+const postCSSNested = require('postcss-nested')
+const postCSSUrl = require('postcss-url')
+const postCSSImports = require('postcss-import')
+const cssnano = require('cssnano')
+const postCSSMixins = require('postcss-mixins')
 
 module.exports = {
   siteMetadata: {
-    title: 'Linux Friday Shitposting',
+    title: `Linuxsucks`,
+    description: `Новости, которые ты заслужил`,
+    copyrights: '',
+    author: `Innsmouth-Trip`,
+    logo: {
+      src: '',
+      alt: '',
+    },
+    logoText: 'Linuxsucks',
+    defaultTheme: 'dark',
+    postsPerPage: 5,
+    showMenuItems: 2,
+    menuMoreText: 'Show more',
+    mainMenu: [
+      {
+        title: 'О нас',
+        path: '/about',
+      },
+      // {
+      //   title: 'Showcase',
+      //   path: '/showcase',
+      // },
+      // {
+      //   title: 'Example',
+      //   path: '/example',
+      // },
+    ],
   },
-  pathPrefix: '/linux-friday-shitposting',
   plugins: [
-    'gatsby-transformer-remark',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
+    `babel-preset-gatsby`,
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: 'gatsby-source-contentful',
-      options: contentfulConfig,
-    }
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          postCSSUrl(),
+          postCSSImports(),
+          postCSSMixins(),
+          postCSSNested(),
+          postCssPresetEnv({
+            importFrom: 'src/styles/variables.css',
+            stage: 1,
+            preserve: false,
+          }),
+          cssnano({
+            preset: 'default',
+          }),
+        ],
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              related: false,
+              noIframeBorder: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              quality: 100,
+            },
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: 'language-',
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: false,
+              noInlineHighlight: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-hello-friend`,
+        short_name: `hello-friend`,
+        start_url: `/`,
+        background_color: `#292a2d`,
+        theme_color: `#292a2d`,
+        display: `minimal-ui`,
+        icon: `src/images/hello-icon.png`,
+      },
+    },
   ],
 }
