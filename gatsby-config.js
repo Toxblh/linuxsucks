@@ -8,6 +8,7 @@ const postCSSMixins = require('postcss-mixins')
 module.exports = {
   siteMetadata: {
     title: `Linuxsucks`,
+    siteUrl: `https://linuxsucks.ru`,
     description: `Новости, которые ты заслужил`,
     copyrights: '',
     author: `Innsmouth-Trip`,
@@ -45,6 +46,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+   resolve: `gatsby-plugin-sitemap`,
+   options: {
+     sitemapSize: 5000
+   },
+ },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -117,10 +124,10 @@ module.exports = {
         name: `gatsby-starter-hello-friend`,
         short_name: `hello-friend`,
         start_url: `/`,
-        background_color: `#292a2d`,
-        theme_color: `#292a2d`,
+        background_color: `#282c34`,
+        theme_color: `#282c34`,
         display: `minimal-ui`,
-        icon: `src/images/hello-icon.png`,
+        icon: `src/images/icon.jpg`,
       },
     },
   ],
