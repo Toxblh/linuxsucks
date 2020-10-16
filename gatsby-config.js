@@ -136,6 +136,7 @@ module.exports = {
      resolve: 'gatsby-plugin-robots-txt',
      options: {
        sitemap: 'https://linuxsucks.ru/sitemap.xml',
+       host:  false,
        policy: [{ userAgent: '*', allow: '/' }]
      }
    },

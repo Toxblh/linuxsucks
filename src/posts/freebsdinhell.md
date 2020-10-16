@@ -1,7 +1,7 @@
 ---
 title: "Создатели FreeBSD посетили «Сатанинский храм»"
 date: "2020-10-10"
-path: "/sozdateli-freebsd-posetili-sataninskij-hram"
+path: "/sozdateli-freebsd-posetili-sataninskij-hram/"
 author: "Innsmouth-trip"
 excerpt: "Создатели FreeBsd посетили церковь сатаны в Детройте и попросили увеличения количества пользователей"
 coverImage: "../images/freebsddetroid/baff.jpg"

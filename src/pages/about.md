@@ -2,7 +2,7 @@
 title: "О нас"
 date: "2020-10-20"
 author: "Innsmouth-trip"
-path: "/about"
+path: "/about/"
 ---
 
 Все без исключения приведённые на сайте linuxsucks.ru материалы являются сатирой и выдумкой.
