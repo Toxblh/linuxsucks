@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const SEO = ({ description, lang, meta, title }) => {
   const data = useStaticQuery(graphql`
-    query DefaultSEOQuery {
+    query indexSEOQuery {
       site {
         siteMetadata {
           title
@@ -24,6 +24,7 @@ const SEO = ({ description, lang, meta, title }) => {
   const metaTitle = title || siteTitle
   const metaDescription = description || siteDescription
 
+
   return (
     <Helmet
       htmlAttributes={{
@@ -35,34 +36,6 @@ const SEO = ({ description, lang, meta, title }) => {
         {
           name: `description`,
           content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: metaTitle,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:title`,
-          content: metaTitle,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:creator`,
-          content: author,
         },
         ]
 

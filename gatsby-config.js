@@ -24,7 +24,7 @@ module.exports = {
     mainMenu: [
       {
         title: 'О нас',
-        path: '/about',
+        path: '/about/',
       },
       // {
       //   title: 'Showcase',

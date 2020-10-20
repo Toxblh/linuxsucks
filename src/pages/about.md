@@ -18,4 +18,4 @@ path: "/about/"
 
 ![стикеры превью](../images/about/stickers.png)
 
-Вдохновлено [panarama.pub](https://panorama.pub/)
+Вдохновлено [panorama.pub](https://panorama.pub/)

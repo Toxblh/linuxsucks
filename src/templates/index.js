@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import SEO from '../components/seo'
+import SEO from '../components/indexseo'
 import Layout from '../components/layout'
-import Post from '../components/post'
+import Post from '../components/indexpost'
 import Navigation from '../components/navigation'
 
 const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
@@ -13,7 +13,7 @@ const Index = ({ data, pageContext: { nextPagePath, previousPagePath } }) => {
 
   return (
     <>
-      <SEO />
+<SEO />
       <Layout>
         {posts.map(({ node }) => {
           const {
