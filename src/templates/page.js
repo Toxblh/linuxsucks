@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={title} description={excerpt || autoExcerpt} />
+      <SEO title={title} description={excerpt || autoExcerpt} coverImage={coverImage} />
       <Post
         key={id}
         title={title}
